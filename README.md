@@ -1,82 +1,65 @@
 # Project Plan: slideSMS.app
 
-## 1a. Project Vision
+slideSMS is the simplest way to reach your friends and contacts instantly without getting lost in a junk folder.
 
-slideSMS is the simplest way to reach a group of people instantly without getting lost in a junk folder.
-- **Security:** Implement modern authentication (OAuth2, MFA) using providers like Google or email-based verification codes.
-- **Multi-Organization Support:** Admins can belong to multiple organizations and switch between them via a dropdown menu or create a new one.
+1. **Simple Messages:** Text-only messages with personalization tokens.
+2. **Message + Link:** Text plus a link for a call-to-action or form fill.
+3. **Operational Messages:** Reusable templates with contact-level customizations (e.g., appointment reminders that include the recipient's name).
 
-### 3.2 User Flow: First Campaign
+## Navigate Folders
+- **project_documentation:** see key docs and project_logs 
+- **slidesms:** sub-directory w actual app
+- **test_artifacts:** test docs
 
-1. **Define Recipient List**
-   - **Input Methods:** Upload (.xls, .csv, Google Sheets) or paste text (CSV, tab-delimited).
-   - **Required Data:** `firstname`, `phone number`.
-   - **Data Scrubbing:** Automatically sanitize phone numbers by removing non-numeric characters (e.g., `(`, `)`, `-`, `.`).
-   - **Admin Opt-in:** Prompt the admin to add their own number to the list if it's not already present.
+### High-level features
+- **Quick start upload:** Login and go directly to upload and messaging.
+- **Robust contact parser:** Supports CSV and XLSX uploads and copy/paste CSV. Auto-detects columns, sanitizes phone numbers/emails, removes duplicates and junk.
+- **List confirmation:** Optional confirmation or double opt-in flows.
+- **Personalization & templates:** Template variables for names, dates, and other contact fields.
+- **Scheduling & timezones:** Schedule messages, select send datetime, and optionally infer recipient timezone.
+- **Link shortener & tracking:** Shorten links and collect click metrics.
+- **AI assistance:** Suggestions to shorten and optimize messages and send times.
+- **Guest/trial limits:** Default guest accounts have limited contacts and message counts; upgrade for full features.
 
-2. **Validate List & Handle Duplicates**
-   - **Confirmation Screen:** Display total recipient count and a list of invalid numbers (e.g., fewer than 10 digits).
-   - **Duplicate Handling:** Automatically handle duplicate first names by appending a number (e.g., `John001`, `John002`). Allow admin to override by adding a last name or nickname (e.g., `John Q`, `Johnny`).
+### Plans
 
-3. **Recipient Number Scoring**
-   - **Function:** Assign a quality score (1–5) to each phone number based on historical data to predict engagement.
-   - **Scoring Model:**
-     - **1 (Poor):** Number frequently opts out.
-     - **2 (At-Risk):** Opts in, but is on >3 lists and received >3 texts from the service in the past week.
-     - **3 (Neutral):** No historical data.
-     - **4 (Good):** Opts in, but is on >3 lists.
-     - **5 (Healthy):** Opts in, not on many lists.
+#### Guest
+- Up to 3 messages per month
+- Up to 20 contacts
+- Cannot change or cancel scheduled messages while in flight. have to contact us;
 
-4. **Compose Message**
-   - **Message Type:** Choose between `text-only` or `text + link`. The link option can integrate with form builders.
-   - **Sender ID:** Define a 3–5 character `orgCode` (e.g., Walgreens -> WLGRN).
-   - **AI-Powered Optimization:** The service will generate 2 message recommendations to minimize character count and maximize value, using a substitution dictionary (e.g., `talk to your` -> `tty`). The AI will prioritize clear, concise communication.
-   - **Final Choice:** Admin can select an AI suggestion, edit their prompt and resubmit, or write their own message manually.
+#### Trial — Basic (Free for 30 days, $10/month)
+- Up to 5 messages per month
+- Up to 40 contacts
+- AI scheduling suggestions
+- Can change or cancel scheduled messages during the trial
+- Supports advanced CSVs (recipient-level schedules)
 
-5. **Schedule & Confirm**
-   - **Scheduling:** Use a date/time picker with time zone support to schedule the campaign.
-   - **Final Review:** Display a summary of the campaign (recipient count, message, scheduled time) for final confirmation.
-   - **Execution:** Admin clicks "Send" to schedule the job.
+#### Small Business ($30/month)
+- Feature set and customizations available; work with the dev team to tailor SMS alerts and workflows.
 
-### 3.3 Post-Campaign & Management
+#### Enterprise
+- Custom integrations (PMS/CRM bridges), dedicated support, and higher-volume features.
 
-- **Campaign Editing:** Admins can modify any aspect of a scheduled campaign before the send time. Once sent, the campaign is locked.
-- **Admin Reporting:** 24 hours after a campaign is sent, the admin receives a summary SMS: _"Hi {FirstName}! 48 sent, 2 bad numbers, 27 success, 10 optout. {shortlink to webapp}"_
-- **Recipient Opt-Out:** If a recipient opts out, their status is permanently recorded with a timestamp to respect their preference in all future campaigns.
+## Developer team
+- **Project Manager & Lead Developer:** Jonas Pascua — SQL BI Developer. Experience with Power BI, SQL Server / SSMS, VS Code, Git, Docker, and PowerShell.
 
-## 4. Monetization: Tiers & Packages
+## Number scoring
+- **Purpose:** Assign a quality score (1–5) to each phone number based on historical engagement and deliverability.
+- **Scoring model:**
+  - **1 (Poor):** Frequently opts out or has poor deliverability.
+  - **2 (At-Risk):** Opts in but appears on multiple lists and has recent low engagement.
+  - **3 (Neutral):** Insufficient historical data.
+  - **4 (Good):** Opts in and shows consistent engagement.
+  - **5 (Excellent):** High engagement and low opt-out risk.
 
-- **Tier 1 (Free):** Trial tier to encourage adoption. Limited to one list and a maximum of 5 messages.
-- **Tier 2 ($10/month):** Subscription for increased usage.
-- **Tier 3 ($30/month):** Aimed at typical small business owners.
-- **Tier 4 (Enterprise):** Custom pricing for a full range of current and future services.
-
-## 5. Sample Messages
-
-- **Sample 1:** slideSMS.CVS - These depts are closed on THXGVG 11/24. TTY mgr nxt shift; From Spain. Txt OK to confirm, STOP to optout.
-- **Sample 2:** slideSMS.YUP - Social is 11/12 @5PM to 630PM. @Location. From Spain. {Shortlink}. Txt OK to confirm, STOP to optout.
-
-
-## 6. Developer Team
-- ** Project Manager + Lead Developer:** - Jonas Pascua. SQL BI Developer. Fabric Power/BI. SqlServer and SSMS22. Have VS Code, Git, and Antigravity. Have SqlServer developer local and Desktop Docker already set up. Some powershell experience.
+## Data & IP
+- Interaction data improves our normalized repository of companies, domains, messages, and engagement signals.
+- Track opt-outs and engagement to improve scoring and deliverability.
+- Capture and verify interested leads (email/phone) and notify the appropriate account owner.
 
 
-## 7. Story Time
-The Story: Sarah’s Tuesday Morning Turnaround
-Sarah, owner of "The Local Roast" coffee shop, used to feel frustrated by her marketing options. Her emails got buried in spam folders, and social media algorithms seemed to hide her posts about daily specials. She knew her customers wanted to hear from her, but managing hundreds of contacts on her personal phone was messy, unprofessional, and chaotic. She felt like she needed an expensive corporate marketing department just to send a simple alert.
-
-Then, she discovered slideSMS.app.
-
-She was skeptical that something powerful could also be simple, but slideSMS was different. It was turnkey and ready to go. There was no complex integration or steep learning curve. Within ten minutes of signing up, she had uploaded her customer spreadsheet into the intuitive dashboard. It just made sense.
-
-Tuesday morning was notoriously slow. Sarah decided to test the waters. She typed up a quick campaign: “Rainy Day Rescue: Show this text for a free pastry with any large latte until noon today!”
-
-Instead of panicking and hitting send immediately, she used the scheduling tool to time it perfectly for 8:45 AM, right as people were arriving at their desks.
-
-At 8:46 AM, phones buzzed across town.
-
-At 9:00 AM, the shop door swung open. A regular walked in, holding up their phone with a grin. "Got your text, Sarah. Perfect timing." Then another customer came in. And another.
-
-Sarah felt a jolt of genuine excitement. For the first time, she had the same immediate, direct reach as the giant coffee chains down the street. The tool was professional, effective, and shockingly affordable. She realized she didn't need to be a "big business" to have big impact. She could start small today, and as her customer list grew to thousands, slideSMS would effortlessly scale right along with her.
-
-She wasn't just sending texts; she was finally owning her audience connection.
+# Run App
+```bash
+npm run dev
+```
