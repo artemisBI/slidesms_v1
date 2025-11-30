@@ -1,0 +1,80 @@
+14:55:14.328 Running build in Washington, D.C., USA (East) – iad1
+14:55:14.329 Build machine configuration: 2 cores, 8 GB
+14:55:14.442 Cloning github.com/artemisBI/slidesms_v1 (Branch: main, Commit: 75fb4c8)
+14:55:14.443 Previous build caches not available.
+14:55:14.667 Cloning completed: 224.000ms
+14:55:15.087 Running "vercel build"
+14:55:15.515 Vercel CLI 48.12.0
+14:55:15.872 Installing dependencies...
+14:55:20.647 npm warn deprecated tsparticles-plugin-easing-quad@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:20.669 npm warn deprecated tsparticles-shape-square@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:20.824 npm warn deprecated tsparticles-interaction-external-pause@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:20.983 npm warn deprecated tsparticles-interaction-particles-attract@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.027 npm warn deprecated tsparticles-move-parallax@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.417 npm warn deprecated tsparticles-shape-line@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.513 npm warn deprecated tsparticles-updater-color@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.802 npm warn deprecated tsparticles-shape-circle@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.910 npm warn deprecated tsparticles-basic@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.979 npm warn deprecated tsparticles-updater-size@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:21.985 npm warn deprecated tsparticles-updater-opacity@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.022 npm warn deprecated tsparticles-shape-text@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.039 npm warn deprecated tsparticles-shape-star@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.058 npm warn deprecated tsparticles-updater-stroke-color@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.067 npm warn deprecated tsparticles-slim@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.111 npm warn deprecated tsparticles-move-base@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.136 npm warn deprecated react-particles@2.12.2: @tsparticles/react is the new version, please use that
+14:55:22.140 npm warn deprecated tsparticles-interaction-particles-collisions@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.167 npm warn deprecated tsparticles-interaction-external-remove@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.173 npm warn deprecated tsparticles-interaction-external-push@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.212 npm warn deprecated tsparticles-shape-polygon@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.245 npm warn deprecated tsparticles-particles.js@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.332 npm warn deprecated tsparticles-interaction-external-bounce@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.343 npm warn deprecated tsparticles-interaction-external-slow@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.395 npm warn deprecated tsparticles-updater-out-modes@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.396 npm warn deprecated tsparticles-interaction-external-attract@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.501 npm warn deprecated tsparticles-updater-rotate@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.659 npm warn deprecated tsparticles-interaction-external-grab@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.660 npm warn deprecated tsparticles-interaction-external-connect@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.691 npm warn deprecated tsparticles-updater-life@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.930 npm warn deprecated tsparticles-interaction-external-repulse@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:22.985 npm warn deprecated tsparticles-interaction-external-bubble@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:23.041 npm warn deprecated tsparticles-interaction-particles-links@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:23.262 npm warn deprecated tsparticles-shape-image@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:27.482 npm warn deprecated tsparticles-engine@2.12.0: starting from tsparticles v3 the packages are now moved to @tsparticles/package-name instead of tsparticles-package-name
+14:55:31.442 
+14:55:31.442 added 418 packages in 15s
+14:55:31.443 
+14:55:31.443 150 packages are looking for funding
+14:55:31.443   run `npm fund` for details
+14:55:31.504 Detected Next.js version: 16.0.4
+14:55:31.508 Running "npm run build"
+14:55:31.623 
+14:55:31.624 > slidesms@0.1.0 build
+14:55:31.624 > next build
+14:55:31.624 
+14:55:31.948 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+14:55:32.494 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+14:55:32.495 This information is used to shape Next.js' roadmap and prioritize features.
+14:55:32.495 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+14:55:32.495 https://nextjs.org/telemetry
+14:55:32.495 
+14:55:32.509    ▲ Next.js 16.0.4 (Turbopack)
+14:55:32.510 
+14:55:32.540    Creating an optimized production build ...
+14:55:32.714 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+14:55:43.941  ✓ Compiled successfully in 10.9s
+14:55:43.943    Running TypeScript ...
+14:55:47.912 Failed to compile.
+14:55:47.913 
+14:55:47.914 ./src/app/api/contacts/upload/route.ts:3:10
+14:55:47.914 Type error: Module '"../../auth/[...nextauth]/route"' has no exported member 'nextAuthOptions'.
+14:55:47.914 
+14:55:47.914 [0m [90m 1 |[39m [36mimport[39m { [33mNextRequest[39m[33m,[39m [33mNextResponse[39m } [36mfrom[39m [32m'next/server'[39m[33m;[39m
+14:55:47.914  [90m 2 |[39m [36mimport[39m { getServerSession } [36mfrom[39m [32m'next-auth'[39m[33m;[39m
+14:55:47.914 [31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m { nextAuthOptions } [36mfrom[39m [32m'../../auth/[...nextauth]/route'[39m[33m;[39m
+14:55:47.914  [90m   |[39m          [31m[1m^[22m[39m
+14:55:47.914  [90m 4 |[39m
+14:55:47.914  [90m 5 |[39m [90m/**[39m
+14:55:47.914  [90m 6 |[39m [90m * POST /api/contacts/upload[39m[0m
+14:55:47.944 Next.js build worker exited with code: 1 and signal: null
+14:55:47.977 Error: Command "npm run build" exited with 1

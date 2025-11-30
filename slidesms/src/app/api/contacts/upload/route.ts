@@ -1,85 +1,77 @@
+// ...existing code...
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { nextAuthOptions } from '../../auth/[...nextauth]/route';
 
-/**
- * POST /api/contacts/upload
- * 
- * Saves validated contacts to the database.
- * Requires user to be authenticated.
- * 
- * Request Body:
- * {
- *   contacts: [
- *     { name: string, phone: string, email: string },
- *     ...
- *   ]
- * }
- * 
- * Response:
- * {
- *   success: true,
- *   inserted: number,
- *   contactIds: number[]
- * }
- */
-export async function POST(request: NextRequest) {
+type Contact = {
+    name?: string;
+    phone: string;
+    email?: string;
+};
+
+const DEBUG_UPLOAD = process.env.DEBUG_UPLOAD === 'true';
+
+function isValidPhone(p: unknown): p is string {
+    if (typeof p !== 'string') return false;
+    const digits = p.replace(/\D/g, '');
+    return digits.length >= 7 && digits.length <= 15;
+}
+
+function maskPhone(p: string) {
+    const digits = p.replace(/\D/g, '');
+    return digits.length <= 4 ? '****' : `****${digits.slice(-4)}`;
+}
+
+export async function POST(request: NextRequest): Promise<NextResponse> {
     try {
-        // 1. Check authentication
-        // const session = await getServerSession(nextAuthOptions);
+        // NOTE: authentication removed for testing.
+        // To re-enable, import getServerSession + shared nextAuthOptions
+        // and validate session before proceeding.
 
-        // if (!session?.user?.email) {
-        //     return NextResponse.json(
-        //         { error: 'Unauthorized. Please sign in.' },
-        //         { status: 401 }
-        //     );
-        // }
-
-        // 2. Parse request body
         const body = await request.json();
         const { contacts } = body;
 
         if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {
-            return NextResponse.json(
-                { error: 'Invalid request. Contacts array is required.' },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: 'Invalid request. Contacts array is required.' }, { status: 400 });
         }
 
-        // 3. Validate contact structure
-        // 3. Validate contact structure
-        for (const contact of contacts) {
-            if (!contact.phone) {
-                return NextResponse.json(
-                    { error: 'Invalid contact data. Phone is required.' },
-                    { status: 400 }
-                );
+        const validated: Contact[] = [];
+
+        for (const raw of contacts) {
+            if (!raw || typeof raw !== 'object') {
+                return NextResponse.json({ error: 'Invalid contact data.' }, { status: 400 });
             }
+            const { phone, name, email } = raw as Record<string, unknown>;
+
+            if (!isValidPhone(phone)) {
+                return NextResponse.json({ error: 'Invalid contact data. Valid phone is required.' }, { status: 400 });
+            }
+
+            validated.push({ name: typeof name === 'string' ? name.trim() : undefined, phone: String(phone), email: typeof email === 'string' ? email.trim() : undefined });
         }
 
-        // 4. TODO: Insert into Supabase
-        // For now, we'll simulate success
-        // In the next step, we'll add the actual Supabase insert
+        console.log(`[DEBUG] Upload request received: ${validated.length} contacts. Example masked:`, maskPhone(validated[0]?.phone ?? ''));
 
-        // console.log(`User ${session.user.email} uploading ${contacts.length} contacts`);
-        console.log(`[DEBUG] Uploading ${contacts.length} contacts`, contacts);
+        // TODO: insert into Supabase using server-only key (SUPABASE_SERVICE_ROLE_KEY)
+        // const contactIds = await insertContacts(validated, session?.user?.email);
 
-        // Simulate database insert
-        const contactIds = contacts.map((_, i) => i + 1);
+        // Simulate database insert IDs
+        const contactIds = validated.map((_, i) => i + 1);
 
-        // 5. Return success with the data for inspection
-        return NextResponse.json({
+        const responsePayload: Record<string, unknown> = {
             success: true,
-            inserted: contacts.length,
+            inserted: validated.length,
             contactIds,
-            debug_received_data: contacts
-        });
+        };
+
+        if (DEBUG_UPLOAD) {
+            // Only include full data when DEBUG_UPLOAD=true
+            responsePayload.debug_received_data = validated;
+        }
+
+        return NextResponse.json(responsePayload, { status: 200 });
 
     } catch (error) {
         console.error('Error uploading contacts:', error);
-        return NextResponse.json(
-            { error: 'Internal server error' },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
+// ...existing code...
