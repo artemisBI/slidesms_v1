@@ -1,0 +1,8 @@
+Name,Phone,Email,Notes
+John Doe,555-123-4567,john@example.com,Standard format
+Jane Smith,(555) 987-6543,jane@example.com,Parentheses
+Bob Johnson,1-555-555-5555,bob@example.com,Leading 1
+Alice Brown,555.111.2222,alice@example.com,Dots
+Invalid User,123,invalid,Too short
+Duplicate John,555-123-4567,john.dup@example.com,Same phone as John
+No Phone,,no.phone@example.com,Missing phone

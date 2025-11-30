@@ -1,0 +1,130 @@
+/**
+ * PREMIUM HERO STYLES
+ * 
+ * - Full viewport height
+ * - Wider container (1400px)
+ * - Larger font sizes (72px headline)
+ * - Gradient button with glow effect
+ * - Particle background support
+ */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-md);
+    text-align: center;
+    background: linear-gradient(180deg, #F4F6F9 0%, #FFFFFF 50%, #F4F6F9 100%);
+    position: relative;
+    overflow: hidden;
+    /* Contain particles */
+}
+
+.container {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    /* Above particles */
+}
+
+.logoWrapper {
+    margin-bottom: var(--space-lg);
+}
+
+.logo {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.headline {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-semibold);
+    line-height: 1.1;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.02em;
+}
+
+.word {
+    display: inline-block;
+    margin-right: 0.25em;
+}
+
+.subheadline {
+    font-size: var(--text-xl);
+    line-height: 1.6;
+    color: var(--color-text-medium);
+    margin-bottom: var(--space-xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta {
+    margin-bottom: var(--space-md);
+}
+
+.primaryButton {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-primary-start) 0%, var(--color-primary-end) 100%);
+    color: var(--color-white);
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    text-decoration: none;
+    transition: all 300ms ease;
+    box-shadow: var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+}
+
+.primaryButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+}
+
+.primaryButton:hover::before {
+    opacity: 1;
+}
+
+.primaryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px rgba(255, 107, 157, 0.5);
+}
+
+.tagline {
+    font-size: var(--text-base);
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: var(--space-xl) var(--space-md);
+        min-height: 90vh;
+    }
+
+    .headline {
+        font-size: var(--text-3xl);
+    }
+
+    .subheadline {
+        font-size: var(--text-lg);
+    }
+
+    .primaryButton {
+        padding: 16px 32px;
+        font-size: var(--text-base);
+    }
+}

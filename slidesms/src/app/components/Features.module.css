@@ -1,0 +1,94 @@
+/**
+ * FEATURES SECTION - DIAGNOSTIC MODE
+ * 
+ * Changed background to transparent/white to diagnose overlay issue
+ */
+
+.features {
+    padding: var(--space-3xl) var(--space-md);
+    background: #FFFFFF;
+    /* Changed to white for diagnosis */
+    color: var(--color-text-dark);
+    /* Changed to dark text for visibility */
+}
+
+.container {
+    max-width: var(--container-wide);
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-semibold);
+    text-align: center;
+    color: var(--color-text-dark);
+    /* Dark text on white */
+    margin-bottom: var(--space-2xl);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+}
+
+.card {
+    padding: var(--space-xl);
+    background: var(--color-bg-light);
+    /* Light gray card */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 300ms ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(78, 63, 243, 0.3);
+}
+
+.iconWrapper {
+    margin-bottom: var(--space-md);
+    display: inline-block;
+}
+
+.icon {
+    color: #4E3FF3;
+    /* Blue icon */
+    filter: drop-shadow(0 0 20px rgba(78, 63, 243, 0.2));
+}
+
+.cardTitle {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.cardDescription {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text-medium);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .features {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .sectionTitle {
+        font-size: var(--text-2xl);
+    }
+
+    .card {
+        padding: var(--space-lg);
+    }
+}

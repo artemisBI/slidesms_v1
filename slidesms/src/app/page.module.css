@@ -1,0 +1,9 @@
+.main {
+  min-height: 100vh;
+  background-color: var(--color-white);
+}
+
+/* Ensure marketing page uses light theme */
+.main * {
+  color: var(--color-text-dark);
+}

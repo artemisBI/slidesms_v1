@@ -1,0 +1,97 @@
+/* Import Inter font from Google Fonts - MUST be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Primary Gradient (softer than solid orange) */
+  --color-primary-start: #FF8A5B;
+  --color-primary-end: #FF6B9D;
+
+  /* Secondary & Accents */
+  --color-secondary-blue: #4E3FF3;
+  --color-accent-cyan: #00D4FF;
+  --color-accent-purple: #9D4EDD;
+  --color-accent-pink: #FF6B9D;
+
+  /* Backgrounds */
+  --color-bg-dark: #0A0A0F;
+  --color-bg-medium: #1A1A2E;
+  --color-bg-light: #F4F6F9;
+
+  /* Text */
+  --color-text-dark: #1A1A2E;
+  --color-text-medium: #5A5A75;
+  --color-text-light: #A8A8B8;
+  --color-white: #FFFFFF;
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --space-2xl: 128px;
+  --space-3xl: 192px;
+
+  /* Typography */
+  --font-family-base: 'Inter', sans-serif;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-2xl: 40px;
+  --text-3xl: 56px;
+  --text-4xl: 72px;
+  --text-5xl: 96px;
+
+  /* Font Weights */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-glow: 0 0 40px rgba(255, 107, 157, 0.3);
+
+  /* Container Widths */
+  --container-narrow: 800px;
+  --container-medium: 1200px;
+  --container-wide: 1400px;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+  color: var(--color-text-dark);
+  font-family: var(--font-family-base);
+  margin: 0;
+  padding: 0;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  text-transform: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
